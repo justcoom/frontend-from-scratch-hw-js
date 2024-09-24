@@ -12,4 +12,3 @@ while (counter <= 10) {
   factorial *= counter;
   counter++;
 }
-console.log(factorial);
