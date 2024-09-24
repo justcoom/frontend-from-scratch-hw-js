@@ -3,3 +3,9 @@
 
 // your code
 let sum;
+let counter = 0;
+sum = 0;
+while(counter < 20) {
+    counter++;
+    sum += counter;
+}
