@@ -12,4 +12,9 @@
 Пример работы функции: `doubleEachCharacter('hello')` вернёт `'hheelllloo'`
 */
 
-function doubleEachCharacter() {}
+function doubleEachCharacter(str) {
+    return str.split("").map((char) => char + char).join("")
+}
+
+// console.log(doubleEachCharacter('monster'));
+
