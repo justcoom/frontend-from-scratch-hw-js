@@ -17,3 +17,42 @@ const WEB_TECH_IMAGES = [
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/c8a1f4a6-1337-4899-bdfd-a8c9c7bb806a_css-magic-logo.jpg',
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/784380b9-6937-42a6-bdfe-869835820234_html-magic-logo.jpg',
 ]
+
+const previousButton = document.querySelector("#prev-button")
+const nextButton = document.querySelector("#next-button")
+const image = document.querySelector('#web-tech-image')
+let numImage = 0;
+
+
+
+// previousButton.addEventListener("click", function () {
+//   numImage = (numImage - 1 + WEB_TECH_IMAGES.length) % WEB_TECH_IMAGES.length;
+//   image.src = WEB_TECH_IMAGES[numImage]
+// }
+// )
+
+// nextButton.addEventListener("click", function () {
+//   numImage = (numImage + 1) % WEB_TECH_IMAGES.length;
+//   image.src = WEB_TECH_IMAGES[numImage]
+// })
+
+
+// РЕФАКТОРИНГ КОДА: ВЫНЕС ОТДЕЛЬНО ФУНКЦИЯ ДЛЯ ИЗМЕНЕНИЯ НАПРАВЛЕНИЯ В ЗАВИСИМОСТИ ОТ КНОПКИ (МОЖНО СДЕЛАТЬ ОТДЕЛЬНО ДВА "ЛИСЕНЕРА")
+
+function changeImage(direction) {
+  numImage += direction;
+  if (numImage < 0) {
+    numImage = WEB_TECH_IMAGES.length - 1;
+  } else if (numImage >= WEB_TECH_IMAGES.length) {
+    numImage = 0;
+  }
+  image.src = WEB_TECH_IMAGES[numImage]
+}
+
+previousButton.addEventListener("click", function () {
+  changeImage(-1)
+}
+)
+nextButton.addEventListener("click", function () {
+  changeImage(1)
+})
