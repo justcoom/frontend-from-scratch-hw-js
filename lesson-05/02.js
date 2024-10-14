@@ -35,4 +35,18 @@ const gallery = {
   'The Scream': 'Edvard Munch',
 }
 
-function updateGallery() {}
+function updateGallery(obj, propertyObj, newValue) {
+  // if (propertyObj in obj) {
+  //   return obj[propertyObj] = newValue;
+  // } else {
+  //   return obj[propertyObj] = newValue;
+  // }
+  return obj[propertyObj] = newValue;
+}
+
+updateGallery(gallery, 'Mona Lisa', 'Leonardo da Vinci, 1503-1506');
+updateGallery(gallery, 'The Persistence of Memory', 'Salvador Dali');
+
+console.log(gallery);
+
+
