@@ -7,11 +7,10 @@
 */
 
 function capitalizeWords(str) {
-  let result = str.slice(0, 1).toUpperCase();
-  for (let i = 1; i < str.length; i++) {
-    if (str[i] === " ") {
-      result = result + " " + str.slice(i + 1, i + 2).toUpperCase()
-      i++
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i === 0 || str[i - 1] === ' ') {
+      result += str[i].toUpperCase()
     } else {
       result += str[i]
     }
@@ -19,19 +18,14 @@ function capitalizeWords(str) {
   return result
 }
 
-// function variantTwo(str) {
-//   let result = str.split("").map((char) => {
-//     if (char === " ") {
-//       return char = char.toUpperCase()
-//     }
-//     return char
-//   }).join("")
-//   return result
-// }
+function variantTwo(str) {
+  return str.split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+}
+
 
 console.log(capitalizeWords('hello world from javascript'));
-console.log(capitalizeWords('I am try guy my friend'));
+console.log(capitalizeWords('FDdD FddD dDFD'));
 
-// console.log(variantTwo('hello world from javascript'));
+console.log(variantTwo('hello world from javascript'));
 
 
