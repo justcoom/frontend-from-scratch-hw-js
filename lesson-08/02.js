@@ -33,10 +33,10 @@ let isTimerStarted = false;
 let timerId;
 
 startButton.addEventListener("click", () => {
-  clearInterval(timerId)
-  let counter = 3;
-  countdownDisplay.textContent = counter;
-  isTimerStarted = true;
+  if (!isTimerStarted) {
+    let counter = 3;
+    countdownDisplay.textContent = counter;
+    isTimerStarted = true;
 
     timerId = setInterval(() => {
       counter--;
@@ -48,6 +48,7 @@ startButton.addEventListener("click", () => {
         isTimerStarted = false;
       }
     }, 1000);
+  }
   // your code
 });
 
